@@ -1,0 +1,17 @@
+{
+  "include": {
+    "type": "group", "operator": "or", "children": [
+      {"type": "group", "operator": "and", "children": [
+        {"type": "rule", "field": "extension", "op": "in_list", "value": "txt,md"},
+        {"type": "rule", "field": "size", "op": "lt", "value": "1MB"}
+      ]},
+      {"type": "rule", "field": "name", "op": "wildcard", "value": "*.jpg;*.png"}
+    ]
+  },
+  "exclude": {
+    "type": "group", "operator": "or", "children": [
+      {"type": "rule", "field": "folder", "op": "contains", "value": "node_modules"},
+      {"type": "rule", "field": "hidden", "op": "is_true"}
+    ]
+  }
+}
